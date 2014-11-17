@@ -1,0 +1,12 @@
+
+FROM daues/lsstdistrib:lsstbase_1_centos6.5_gcc44
+MAINTAINER Greg Daues
+
+RUN  cd /usr/local/lsst/lsst_home && \
+  echo yes > /tmp/input1 && \
+  echo yes >> /tmp/input1 && \
+  /bin/bash newinstall.sh < /tmp/input1  && \
+  /bin/bash -c 'source "/usr/local/lsst/lsst_home/loadLSST.sh"; eups list; export EUPSPKG_NJOBS=1; eups distrib install -t v9_2 lsst_apps; eups list'
+
+
+
