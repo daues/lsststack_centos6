@@ -1,0 +1,11 @@
+
+
+FROM daues/lsststack_centos6:lsstapps_v9_2_gcc44_b
+MAINTAINER Greg Daues
+
+RUN  /bin/bash -c 'source "/usr/local/lsst/lsst_home/loadLSST.bash"; eups list; export EUPSPKG_NJOBS=1; eups distrib install -t v9_2 lsst_distrib; eups list'
+
+
+
+
+
